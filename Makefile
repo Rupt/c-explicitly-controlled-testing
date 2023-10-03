@@ -14,4 +14,4 @@ clean:
 	rm -f main
 
 main: main.c tect.h
-	${CC} $(CCARGS) -o $@ $*.c
+	${CC} $(CCARGS) -o $@ $<
