@@ -1,7 +1,3 @@
-// FIXME(#7) install a C23 compiler
-#define bool _Bool
-#define true 1
-#define false 0
 // ## test_once (function-like macro)
 //
 // Return assertion's integral value, and print when it is *first* false.
