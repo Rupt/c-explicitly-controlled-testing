@@ -37,11 +37,8 @@
     const bool pass = (bool)(assertion) | has_been_false;                      \
     if (!__builtin_expect(pass, 1)) {                                          \
       has_been_false = true;                                                   \
-      __builtin_printf(unstable_test_once_format,                              \
-                       __FILE__,                                               \
-                       __LINE__,                                               \
-                       __FUNCTION__,                                           \
-                       (#assertion));                                          \
+      __builtin_printf(unstable_test_once_format, __FILE__, __LINE__,          \
+                       __FUNCTION__, (#assertion));                            \
     }                                                                          \
     (int)__builtin_expect(pass, 1);                                            \
   })
@@ -60,4 +57,4 @@
     1;                                                                         \
   })
 
-static const char* unstable_test_once_format = "%s:%d: %s: !tect_once(%s); ";
+static const char *unstable_test_once_format = "%s:%d: %s: !tect_once(%s); ";

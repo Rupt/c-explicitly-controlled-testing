@@ -7,7 +7,7 @@ run: main
 
 .PHONY: fmt
 fmt: *.h *.c 
-	clang-format -Werror -style=Mozilla -i $^
+	clang-format -Werror -i $^
 
 .PHONY: clean
 clean:
