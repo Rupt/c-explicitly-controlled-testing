@@ -5,20 +5,23 @@
 // You should follow this with `tect_report`, as follows:
 //
 // ```c
-// static int tect_demo() {
-//   const int answer = 6 * 9;
+// static int check_example() {
+//     const int answer = 6 * 9;
 //
-//   if (!tect_once(answer == 42))
-//     return tect_report("answer == %d", answer);
+//     if (!tect_once(answer == 42))
+//       return tect_report("answer == %d", answer);
 //
-//   return 0;
+//     if (!tect_once(3 == 4))
+//       return tect_report();
+//
+//     return 0;
 // }
 // ```
 //
 // To fully run this test, use a loop such as:
 //
 // ```c
-//     while(tect_demo())
+//     while(check_example())
 //         ;
 // ```
 //
@@ -41,7 +44,7 @@
 
 // ## tect_report (function-like macro)
 //
-// Call printf with any arguments, print '\n', and return a nonzero integer.
+// Call printf with any arguments, print '\n', and return 1.
 //
 // See `tect_once` for usage advice.
 //

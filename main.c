@@ -1,16 +1,19 @@
 #include "tect.h"
 #include <stdio.h>
 
-static int tect_demo() {
+static int check_example() {
   const int answer = 6 * 9;
 
   if (!tect_once(answer == 42))
     return tect_report("answer == %d", answer);
 
+  if (!tect_once(3 == 4))
+    return tect_report();
+
   return 0;
 }
 
-static int tect_code() {
+static int check_some_code() {
   const char code[] = "--<-<<+[+[<+>--->->->-<<<]>]<<--.<++++++.<<-..<<.<+.>>.";
 
   if (!tect_once(sizeof(code) < 78)) // ✅
@@ -29,11 +32,11 @@ static int tect_code() {
 }
 
 int main() {
-  while (tect_demo())
+  while (check_example())
     ;
 
   int n_false = 0;
-  while (tect_code()) // Returning allows us to inspect from outside.
+  while (check_some_code()) // Returning lets us inspect externally.
     ++n_false;
-  printf("Number of negative checks in tect_code: %d\n", n_false);
+  printf("Number of negative checks in check_some_code: %d\n", n_false);
 }
