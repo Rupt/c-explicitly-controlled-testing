@@ -1,4 +1,4 @@
-// FIXME install a C23 compiler
+// FIXME(#7) install a C23 compiler
 #define bool _Bool
 #define true 1
 #define false 0
@@ -41,8 +41,11 @@
     const bool pass = (bool)(assertion) | has_been_false;                      \
     if (!__builtin_expect(pass, 1)) {                                          \
       has_been_false = true;                                                   \
-      __builtin_printf(                                                        \
-        unstable_test_format, __FILE__, __LINE__, __FUNCTION__, (#assertion)); \
+      __builtin_printf(unstable_test_once_format,                              \
+                       __FILE__,                                               \
+                       __LINE__,                                               \
+                       __FUNCTION__,                                           \
+                       (#assertion));                                          \
     }                                                                          \
     (int)__builtin_expect(pass, 1);                                            \
   })
@@ -61,4 +64,4 @@
     1;                                                                         \
   })
 
-static const char* unstable_test_format = "%s:%d: %s: Test `%s` is false; ";
+static const char* unstable_test_once_format = "%s:%d: %s: !tect_once(%s); ";

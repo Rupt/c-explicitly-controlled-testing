@@ -15,7 +15,6 @@ test_demo()
     return test_report("x == %d", x);
   if (!test_once(x == x))
     return test_report();
-
   return 0;
 }
 
