@@ -10,10 +10,6 @@ run: example_one.out example_two.out
 fmt: *.h *.c
 	clang-format -Werror -i $^
 
-.PHONY: clean
-clean:
-	rm -f *.out *.log
-
 .PHONY: test
 test: example_one.log example_two.log
 	grep -qE "answer == 42.+answer == 54" example_one.log

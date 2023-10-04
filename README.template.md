@@ -88,8 +88,6 @@ make test # Apply some basic checks to the example outputs.
 
 make fmt # Auto-format C source files.
 
-make clean # Remove build artifacts and log files.
-
 make README.md # Generate `README.md` from the template file.
 
 ```
