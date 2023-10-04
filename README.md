@@ -135,7 +135,7 @@ We track the first activation in a mutating static variable.
 
 On a false assertion, our printed message adapts `assert`'s style.
 
-### tect_report (function-like macro)
+### `tect_report` (function-like macro)
 
 `(const char *format, ...) -> int, or () -> int`
 
