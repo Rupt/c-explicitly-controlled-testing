@@ -58,5 +58,7 @@
     1;                                                                         \
   })
 
+/* unstable_tect_* => Don't rely on this. Could be misnamed "private API". */
 static const char *unstable_tect_once_format = "%s:%d: %s: !tect_once(%s); ";
+
 // [//]: # (Avoid trailing newlines)
