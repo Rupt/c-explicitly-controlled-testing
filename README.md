@@ -8,6 +8,8 @@ We illustrate this with a goofy example, written in GNU C23.
 
 Macros `tect_once` and `tect_report` hide checking and reporting logic.
 
+[//]: # (Replace "SCRIPT_*" with generated content)
+
 ```c
 // example_one.c
 #include "tect.h"
@@ -95,3 +97,50 @@ Attach git pre-commit hooks:
 ln pre-commit .git/hooks/pre-commit
 
 ```
+
+## Documentation
+
+[//]: # (Append in-source documentation below)
+
+### `tect_once` (function-like macro)
+
+Return assertion's integral value, and print when it is _first_ false.
+
+You should follow this with `tect_report`, as follows:
+
+```c
+static int check_example() {
+    const int answer = 6 * 9;
+
+    if (!tect_once(answer == 42))
+      return tect_report("answer == %d", answer);
+
+    if (!tect_once(3 == 4))
+      return tect_report();
+
+    return 0;
+}
+```
+
+To fully run this test, use a loop such as:
+
+```c
+    while(check_example())
+        ;
+```
+
+We track the first activation in a mutating static variable.
+
+On a false assertion, our printed message adapts `assert`'s style.
+
+(expression) -> int
+
+### tect_report (function-like macro)
+
+Call printf with any arguments, print '\n', and return 1.
+
+See `tect_once` for usage advice.
+
+(const char *format, ...) -> int, or () -> int
+
+[//]: # (Avoid trailing newlines)

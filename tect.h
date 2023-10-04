@@ -1,6 +1,6 @@
-// ## tect_once (function-like macro)
+// ### `tect_once` (function-like macro)
 //
-// Return assertion's integral value, and print when it is *first* false.
+// Return assertion's integral value, and print when it is _first_ false.
 //
 // You should follow this with `tect_report`, as follows:
 //
@@ -30,6 +30,7 @@
 // On a false assertion, our printed message adapts `assert`'s style.
 //
 // (expression) -> int
+//
 #define tect_once(assertion)                                                   \
   ({                                                                           \
     static bool has_been_false = false;                                        \
@@ -42,13 +43,14 @@
     (int)__builtin_expect(pass, 1);                                            \
   })
 
-// ## tect_report (function-like macro)
+// ### tect_report (function-like macro)
 //
 // Call printf with any arguments, print '\n', and return 1.
 //
 // See `tect_once` for usage advice.
 //
 // (const char *format, ...) -> int, or () -> int
+//
 #define tect_report(...)                                                       \
   ({                                                                           \
     __VA_OPT__(__builtin_printf(__VA_ARGS__);)                                 \
@@ -57,3 +59,4 @@
   })
 
 static const char *unstable_tect_once_format = "%s:%d: %s: !tect_once(%s); ";
+// [//]: # (Avoid trailing newlines)

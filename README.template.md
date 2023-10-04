@@ -8,6 +8,8 @@ We illustrate this with a goofy example, written in GNU C23.
 
 Macros `tect_once` and `tect_report` hide checking and reporting logic.
 
+[//]: # (Replace "SCRIPT_*" with generated content)
+
 ```c
 // example_one.c
 SCRIPT_CONTENT
@@ -77,3 +79,7 @@ Attach git pre-commit hooks:
 ln pre-commit .git/hooks/pre-commit
 
 ```
+
+## Documentation
+
+[//]: # (Append in-source documentation below)
