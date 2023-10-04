@@ -12,7 +12,7 @@ fmt: *.h *.c
 
 .PHONY: clean
 clean:
-	rm -f example_two
+	rm -f example_one example_two *.log
 
 README.md: README.template.md example_one.c example_one.log
 	cp $< $@
