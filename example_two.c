@@ -1,20 +1,8 @@
 #include "tect.h"
 #include <stdio.h>
 
-static int check_example() {
-  const int answer = 6 * 9;
-
-  if (!tect_once(answer == 42))
-    return tect_report("answer == %d", answer);
-
-  if (!tect_once(3 == 4))
-    return tect_report();
-
-  return 0;
-}
-
 static int check_some_code() {
-  const char code[] = "--<-<<+[+[<+>--->->->-<<<]>]<<--.<++++++.<<-..<<.<+.>>.";
+  const char code[] = "--<-<<+[+[<+>--->->->-<<<]>]<<--.<++++++.<<-..<<.<+.";
 
   if (!tect_once(sizeof(code) < 78)) // ✅
     return tect_report("sizeof(code) == %zu", sizeof(code));
@@ -32,9 +20,6 @@ static int check_some_code() {
 }
 
 int main() {
-  while (check_example())
-    ;
-
   int n_false = 0;
   while (check_some_code()) // Returning lets us inspect externally.
     ++n_false;

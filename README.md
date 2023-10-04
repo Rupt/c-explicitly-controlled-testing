@@ -9,6 +9,7 @@ We illustrate this with a goofy example, written in GNU C23.
 Macros `tect_once` and `tect_report` hide checking and reporting logic.
 
 ```c
+// example_one.c
 #include "tect.h"
 
 static int check_example() {
@@ -32,21 +33,21 @@ int main() {
 Running this yields:
 
 ```text
-example_readme.c:6: check_example: !tect_once(answer == 42); answer == 54
-example_readme.c:9: check_example: !tect_once(3 == 4); 
+example_one.c:6: check_example: !tect_once(answer == 42); answer == 54
+example_one.c:9: check_example: !tect_once(3 == 4); 
 ```
 
 Note that we run `check_example` twice.
-Returning and retrying gives you freedom to interpret and handle the test
-status however the language allows.
+Returning and retrying gives you freedom to interpret and handle the returned
+value however the language allows.
+
+See `example_two.c` for a more involved example.
 
 This repeated-run style is _inspired by_ (and not an implementation of)
 Andrei Alexandrescu's
 ["Unit Test Should Nest"](https://youtu.be/trGJsOcA4hY?t=2887),
 which is inspired by
 [Catch2](https://github.com/catchorg/Catch2).
-
-See `main.c` for more thorough examples. Run `main.c` with `make run`.
 
 ## Counter-example
 
@@ -81,7 +82,7 @@ sudo apt install clang-format gcc-13 make
 
 ```
 
-Build and execute:
+Build and run our examples:
 
 ```shell
 make

@@ -55,8 +55,8 @@ dkms.conf
 *.kate-swp
 
 # Executables
-example_readme
-main
+example_one
+example_two
 
 # Log files
 *.log

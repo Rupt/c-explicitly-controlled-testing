@@ -1,2 +1,2 @@
 #!/bin/sh
-make fmt && make run
+make README.md && make fmt && make run
