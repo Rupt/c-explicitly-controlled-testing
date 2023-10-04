@@ -14,7 +14,7 @@ Macros `tect_once` and `tect_report` hide checking and reporting logic.
 // example_one.c
 #include "tect.h"
 
-static int check_example() {
+static int check_for_tea_too() {
   const int answer = 6 * 9;
 
   if (!tect_once(answer == 42)) // Triggers at most _once_ by hiding state.
@@ -27,7 +27,7 @@ static int check_example() {
 }
 
 int main() {
-  while (check_example())
+  while (check_for_tea_too())
     ;
 }
 ```
@@ -35,8 +35,8 @@ int main() {
 This outputs:
 
 ```text
-example_one.c:6: check_example: !tect_once(answer == 42); answer == 54
-example_one.c:9: check_example: !tect_once(3 == 4);
+example_one.c:6: check_for_tea_too: !tect_once(answer == 42); answer == 54
+example_one.c:9: check_for_tea_too: !tect_once(3 == 4); 
 ```
 
 Note that we run `check_example` twice.
@@ -109,7 +109,7 @@ make README.md # Generate `README.md` from the template file.
 
 ```
 
-For development, run `make -s README.md fmt test` before each commit.
+For development, please run `make -s README.md fmt test` before each commit.
 
 ## Documentation
 

@@ -1,6 +1,6 @@
 #include "tect.h"
 
-static int check_example() {
+static int check_for_tea_too() {
   const int answer = 6 * 9;
 
   if (!tect_once(answer == 42)) // Triggers at most _once_ by hiding state.
@@ -13,6 +13,6 @@ static int check_example() {
 }
 
 int main() {
-  while (check_example())
+  while (check_for_tea_too())
     ;
 }
