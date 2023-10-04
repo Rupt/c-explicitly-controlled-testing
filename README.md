@@ -91,6 +91,6 @@ make
 Attach git pre-commit hooks:
 
 ```shell
-ln -s pre-commit .git/hooks/pre-commit
+ln pre-commit .git/hooks/pre-commit
 
 ```
