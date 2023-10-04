@@ -35,8 +35,11 @@ which is inspired by
 
 ## Counter-example
 
-Common C testing tools construct domain-specific languages from macros
-that hide both declarations and control flow.
+Common C testing tools use such powerful macros that their code does not
+resemble C.
+
+They instead define new, domain-specific languages, because their macros
+hide both declarations and control flow.
 
 For example, a pastiche of the C testing tools from
 [Awesome C](https://github.com/oz123/awesome-c#testing)
