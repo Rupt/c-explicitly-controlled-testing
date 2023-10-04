@@ -9,31 +9,13 @@ We illustrate this with a goofy example, written in GNU C23.
 Macros `tect_once` and `tect_report` hide checking and reporting logic.
 
 ```c
-#include "tect.h"
-
-static int check_example() {
-  const int answer = 6 * 9;
-
-  if (!tect_once(answer == 42)) // Triggers at most _once_ by hiding state.
-    return tect_report("answer == %d", answer); // Appends to the output log.
-
-  if (!tect_once(3 == 4)) // We next check this.
-    return tect_report();
-
-  return 0; // => test done. Other return values are yours to interpret.
-}
-
-int main() {
-  while (check_example())
-    ;
-}
+SCRIPT_CONTENT
 ```
 
 Running this yields:
 
 ```text
-example_readme.c:6: check_example: !tect_once(answer == 42); answer == 54
-example_readme.c:9: check_example: !tect_once(3 == 4); 
+SCRIPT_OUTPUT
 ```
 
 Note that we run `check_example` twice.
