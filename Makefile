@@ -26,7 +26,7 @@ fmt: *.h *.c
 clean:
 	rm -f example_one example_two *.log
 
-README.md: README.template.md example_one.c example_one.log
+README.md: README.template.md example_one.c example_one.log tect.h
 	# Substitute markers
 	cp $< $@
 	sed -e "/SCRIPT_CONTENT/{r example_one.c" -e "d}" -i $@

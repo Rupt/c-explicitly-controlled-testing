@@ -43,7 +43,7 @@
     (int)__builtin_expect(pass, 1);                                            \
   })
 
-// ### tect_report (function-like macro)
+// ### `tect_report` (function-like macro)
 //
 // `(const char *format, ...) -> int, or () -> int`
 //

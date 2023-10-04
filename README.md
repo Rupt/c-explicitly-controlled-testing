@@ -104,6 +104,8 @@ ln pre-commit .git/hooks/pre-commit
 
 ### `tect_once` (function-like macro)
 
+`(expression) -> int`
+
 Return assertion's integral value, and print when it is _first_ false.
 
 You should follow this with `tect_report`, as follows:
@@ -133,14 +135,12 @@ We track the first activation in a mutating static variable.
 
 On a false assertion, our printed message adapts `assert`'s style.
 
-(expression) -> int
-
 ### tect_report (function-like macro)
 
-Call printf with any arguments, print '\n', and return 1.
+`(const char *format, ...) -> int, or () -> int`
 
-See `tect_once` for usage advice.
+Call `printf` with any arguments, print `'\n'`, and return 1.
 
-(const char *format, ...) -> int, or () -> int
+See `tect_once` for usage.
 
 [//]: # (Avoid trailing newlines)
