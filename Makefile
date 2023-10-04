@@ -2,9 +2,9 @@ CCARGS := -std=gnu2x -Wall -Wextra -Werror -O1
 CC := gcc-13
 
 .PHONY: run
-run: example_one example_two
-	./example_one
-	./example_two
+run: example_one.out example_two.out
+	./example_one.out
+	./example_two.out
 
 .PHONY: test
 test: example_one.log example_two.log
@@ -24,7 +24,7 @@ fmt: *.h *.c
 
 .PHONY: clean
 clean:
-	rm -f example_one example_two *.log
+	rm -f *.out *.log
 
 README.md: README.template.md example_one.c example_one.log tect.h
 	# Substitute markers
@@ -35,8 +35,8 @@ README.md: README.template.md example_one.c example_one.log tect.h
 	echo >> $@ # One new line
 	grep -E "^// ?" tect.h | sed -E "s|^// ?||" >> $@
 
-%: %*.c tect.h
+%.out: %.c tect.h
 	${CC} $(CCARGS) -o $@ $<
 
-%.log: %
+%.log: %.out
 	./$< > $@
