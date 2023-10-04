@@ -1,3 +1,6 @@
+[//]: # (WARNING: We generate README.md from README.template.md.)
+[//]: # (Do not edit README.md directly.)
+
 # TECT: Explicitly Controlled Testing
 
 You can test C code without hiding control flow in macros.
