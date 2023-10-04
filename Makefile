@@ -6,7 +6,7 @@ run: main
 	./main
 
 .PHONY: fmt
-fmt: *.h *.c 
+fmt: *.h *.c
 	clang-format -Werror -i $^
 
 .PHONY: clean

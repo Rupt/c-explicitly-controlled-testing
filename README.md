@@ -87,3 +87,10 @@ Build and execute:
 make
 
 ```
+
+Attach git pre-commit hooks:
+
+```shell
+ln -s pre-commit .git/hooks/pre-commit
+
+```
