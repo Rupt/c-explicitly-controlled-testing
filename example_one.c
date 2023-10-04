@@ -9,7 +9,7 @@ static int check_for_tea_too() {
   if (!tect_once(3 == 4)) // We next check this.
     return tect_report();
 
-  return 0; // => test done. Other return values are yours to interpret.
+  return 0; // => We are done. Other return values are yours to interpret.
 }
 
 int main() {

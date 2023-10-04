@@ -84,15 +84,15 @@ make
 Other make commands:
 
 ```shell
-make test # Apply some basic checks to the example outputs.
+make check # Run some basic tests on the examples' outputs.
 
-make fmt # Auto-format C source files.
+make fmt # Auto-format our C source files.
 
 make README.md # Generate `README.md` from the template file.
 
 ```
 
-For development, please run `make -s README.md fmt test` before each commit.
+For development, please run `make -s README.md fmt check` before each commit.
 
 ## Documentation
 

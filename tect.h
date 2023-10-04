@@ -45,7 +45,7 @@
 
 // ### `tect_report` (function-like macro)
 //
-// `(const char *format, ...) -> int, or () -> int`
+// `(const char *format, ...args) -> int, or () -> int`
 //
 // Call `printf` with any arguments, print `'\n'`, and return 1.
 //

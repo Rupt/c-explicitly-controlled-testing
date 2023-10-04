@@ -26,7 +26,7 @@ static int check_for_tea_too() {
   if (!tect_once(3 == 4)) // We next check this.
     return tect_report();
 
-  return 0; // => test done. Other return values are yours to interpret.
+  return 0; // => We are done. Other return values are yours to interpret.
 }
 
 int main() {
@@ -102,15 +102,15 @@ make
 Other make commands:
 
 ```shell
-make test # Apply some basic checks to the example outputs.
+make check # Run some basic tests on the examples' outputs.
 
-make fmt # Auto-format C source files.
+make fmt # Auto-format our C source files.
 
 make README.md # Generate `README.md` from the template file.
 
 ```
 
-For development, please run `make -s README.md fmt test` before each commit.
+For development, please run `make -s README.md fmt check` before each commit.
 
 ## Documentation
 
@@ -153,7 +153,7 @@ On a false assertion, our printed message adapts `assert`'s style.
 
 ### `tect_report` (function-like macro)
 
-`(const char *format, ...) -> int, or () -> int`
+`(const char *format, ...args) -> int, or () -> int`
 
 Call `printf` with any arguments, print `'\n'`, and return 1.
 
