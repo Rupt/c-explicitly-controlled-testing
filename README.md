@@ -32,7 +32,7 @@ int main() {
 }
 ```
 
-Running this yields:
+This outputs:
 
 ```text
 example_one.c:6: check_example: !tect_once(answer == 42); answer == 54
@@ -75,8 +75,10 @@ By hiding core language features, such designs make me I feel uncomfortably
 incapable of composing these tools with core language features.
 
 Our `tect` macros also hide state and output.
-And they are arguably disgusting abuses of language extensions.a
-But they do give control of control flow to users.
+
+And they are arguably disgusting abuses of language extensions.
+
+But they do give users control of control flow.
 
 ## Usage
 
@@ -102,6 +104,8 @@ ln pre-commit .git/hooks/pre-commit
 ```
 
 ## Documentation
+
+We generate this section from comments in `tect.h`.
 
 [//]: # (Append in-source documentation below)
 

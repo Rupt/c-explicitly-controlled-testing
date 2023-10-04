@@ -15,7 +15,7 @@ Macros `tect_once` and `tect_report` hide checking and reporting logic.
 SCRIPT_CONTENT
 ```
 
-Running this yields:
+This outputs:
 
 ```text
 SCRIPT_OUTPUT
@@ -57,8 +57,10 @@ By hiding core language features, such designs make me I feel uncomfortably
 incapable of composing these tools with core language features.
 
 Our `tect` macros also hide state and output.
-And they are arguably disgusting abuses of language extensions.a
-But they do give control of control flow to users.
+
+And they are arguably disgusting abuses of language extensions.
+
+But they do give users control of control flow.
 
 ## Usage
 
@@ -84,5 +86,7 @@ ln pre-commit .git/hooks/pre-commit
 ```
 
 ## Documentation
+
+We generate this section from comments in `tect.h`.
 
 [//]: # (Append in-source documentation below)
