@@ -1,2 +1,2 @@
 #!/bin/sh
-make README.md fmt test
+make -s README.md fmt test
