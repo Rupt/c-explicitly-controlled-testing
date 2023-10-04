@@ -2,7 +2,7 @@
 
 You can test C code without hiding control flow in macros.
 
-We illustrate this with a goofy example, written in GNU C23.
+We illustrate this with a silly little example, written in GNU C23.
 
 ## Example
 
@@ -33,7 +33,7 @@ Andrei Alexandrescu's
 which is inspired by
 [Catch2](https://github.com/catchorg/Catch2).
 
-## Counter-example
+## Non-Example
 
 Common C testing tools use such powerful macros that their code does not
 resemble C.
@@ -64,7 +64,7 @@ But they do give users control of control flow.
 
 ## Usage
 
-Install from `Ubuntu 23.04`:
+Install tools in `Ubuntu 23.04`:
 
 ```shell
 sudo apt install clang-format gcc-13 make
@@ -78,7 +78,20 @@ make
 
 ```
 
-Attach git pre-commit hooks:
+Other make commands:
+
+```shell
+make test # Apply some basic checks to the example outputs.
+
+make fmt # Auto-format C source files.
+
+make clean # Remove build artifacts and log files.
+
+make README.md # Generate `README.md` from the template file.
+
+```
+
+For development, attach git pre-commit hooks:
 
 ```shell
 ln pre-commit .git/hooks/pre-commit
