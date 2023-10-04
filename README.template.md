@@ -91,12 +91,7 @@ make README.md # Generate `README.md` from the template file.
 
 ```
 
-For development, attach git pre-commit hooks:
-
-```shell
-ln pre-commit .git/hooks/pre-commit
-
-```
+For development, please run `make -s README.md fmt test` before each commit.
 
 ## Documentation
 
