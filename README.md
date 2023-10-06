@@ -1,11 +1,11 @@
 [//]: # (WARNING: We generate README.md from README.template.md.)
-[//]: # (Do not edit README.md directly.)
+[//]: # (Do not edit README.md. Make it with `make README.md`)
 
 # TECT: Explicitly Controlled Testing
 
 You can test C code without hiding control flow in macros.
 
-We illustrate this with a silly little example, written in GNU C23.
+This repository is a goofy illustration of that, written in GNU C23.
 
 ## Example
 
@@ -67,7 +67,7 @@ For example, a pastiche of the C testing tools from
 could look like:
 
 ```c
-DECLARE_TEST(context, "test_description") {
+DECLARE_TEST(context, "some associated text") {
     CHECK(6 * 9 == 42);
     CHECK(3 == 4);
 }
@@ -77,7 +77,7 @@ DECLARE_TEST(context, "test_description") {
 By hiding core language features, such designs make me I feel uncomfortably
 incapable of composing these tools with core language features.
 
-Our `tect` macros also hide state and output.
+Our `tect_*` macros also hide state and output.
 
 And they are arguably disgusting abuses of language extensions.
 
@@ -124,16 +124,16 @@ We generate this section from comments in `tect.h`.
 
 Return assertion's integral value, and print when it is _first_ false.
 
-You should follow this with `tect_report`, as follows:
+You should follow `tect_once` by calling `tect_report` as follows:
 
 ```c
 static int check_example() {
-    const int answer = 6 * 9;
+    const int result = square(4);
 
-    if (!tect_once(answer == 42))
-      return tect_report("answer == %d", answer);
+    if (!tect_once(result == 16))
+      return tect_report("result == %d", result);
 
-    if (!tect_once(3 == 4))
+    if (!tect_once(square(0) == 0))
       return tect_report();
 
     return 0;
@@ -155,7 +155,7 @@ On a false assertion, our printed message adapts `assert`'s style.
 
 `(const char *format, ...args) -> int, or () -> int`
 
-Call `printf` with any arguments, print `'\n'`, and return 1.
+Call `printf` with any arguments, print `'\n'`, and return (int) 1.
 
 See `tect_once` for usage.
 

@@ -24,7 +24,7 @@ README.md: README.template.md example_one.c example_one.log tect.h
 	sed -e "/SCRIPT_CONTENT/{r example_one.c" -e "d}" \
 	    -e "/SCRIPT_OUTPUT/{r example_one.log" -e "d}" $< > $@
 	echo >> $@ # newline
-	grep -E "^// ?" tect.h | sed -E "s|^// ?||" >> $@
+	grep -E "^\/\/ ?" tect.h | sed -E "s|^\/\/ ?||" >> $@
 
 %.out: %.c tect.h
 	${CC} $(CCARGS) -o $@ $<

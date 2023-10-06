@@ -4,16 +4,16 @@
 //
 // Return assertion's integral value, and print when it is _first_ false.
 //
-// You should follow this with `tect_report`, as follows:
+// You should follow `tect_once` by calling `tect_report` as follows:
 //
 // ```c
 // static int check_example() {
-//     const int answer = 6 * 9;
+//     const int result = square(4);
 //
-//     if (!tect_once(answer == 42))
-//       return tect_report("answer == %d", answer);
+//     if (!tect_once(result == 16))
+//       return tect_report("result == %d", result);
 //
-//     if (!tect_once(3 == 4))
+//     if (!tect_once(square(0) == 0))
 //       return tect_report();
 //
 //     return 0;
@@ -47,7 +47,7 @@
 //
 // `(const char *format, ...args) -> int, or () -> int`
 //
-// Call `printf` with any arguments, print `'\n'`, and return 1.
+// Call `printf` with any arguments, print `'\n'`, and return (int) 1.
 //
 // See `tect_once` for usage.
 //
@@ -55,7 +55,7 @@
   ({                                                                           \
     __VA_OPT__(__builtin_printf(__VA_ARGS__);)                                 \
     __builtin_printf("\n");                                                    \
-    1;                                                                         \
+    (int)1;                                                                    \
   })
 
 /* unstable_tect_* => Don't rely on this. Could be misnamed "private API". */

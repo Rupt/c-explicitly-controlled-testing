@@ -1,11 +1,11 @@
 [//]: # (WARNING: We generate README.md from README.template.md.)
-[//]: # (Do not edit README.md directly.)
+[//]: # (Do not edit README.md. Make it with `make README.md`)
 
 # TECT: Explicitly Controlled Testing
 
 You can test C code without hiding control flow in macros.
 
-We illustrate this with a silly little example, written in GNU C23.
+This repository is a goofy illustration of that, written in GNU C23.
 
 ## Example
 
@@ -49,7 +49,7 @@ For example, a pastiche of the C testing tools from
 could look like:
 
 ```c
-DECLARE_TEST(context, "test_description") {
+DECLARE_TEST(context, "some associated text") {
     CHECK(6 * 9 == 42);
     CHECK(3 == 4);
 }
@@ -59,7 +59,7 @@ DECLARE_TEST(context, "test_description") {
 By hiding core language features, such designs make me I feel uncomfortably
 incapable of composing these tools with core language features.
 
-Our `tect` macros also hide state and output.
+Our `tect_*` macros also hide state and output.
 
 And they are arguably disgusting abuses of language extensions.
 
