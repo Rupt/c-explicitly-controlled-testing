@@ -1,7 +1,7 @@
 #include "tect.h"
 #include <stdio.h>
 
-static int check_some_code() {
+int check_some_code() {
   const char code[] = "--<-<<+[+[<+>--->->->-<<<]>]<<--.<++++++.<<-..<<.<+.";
 
   if (!tect_once(sizeof(code) < 78)) // ✅

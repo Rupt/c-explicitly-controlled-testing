@@ -7,24 +7,24 @@
 // You should follow `tect_once` by calling `tect_report` as follows:
 //
 // ```c
-// static int check_example() {
-//     const int result = square(4);
+// int check_example() {
+//   const int result = square(4);
 //
-//     if (!tect_once(result == 16))
-//       return tect_report("result == %d", result);
+//   if (!tect_once(result == 16))
+//     return tect_report("result == %d", result);
 //
-//     if (!tect_once(square(0) == 0))
-//       return tect_report();
+//   if (!tect_once(square(0) == 0))
+//     return tect_report();
 //
-//     return 0;
+//   return 0;
 // }
 // ```
 //
 // To fully run this test, use a loop such as:
 //
 // ```c
-//     while(check_example())
-//         ;
+//  while (check_example())
+//    ;
 // ```
 //
 // We track the first activation in a mutating static variable.

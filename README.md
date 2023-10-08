@@ -17,7 +17,7 @@ Macros `tect_once` and `tect_report` hide checking and reporting logic.
 // example_one.c
 #include "tect.h"
 
-static int check_for_tea_too() {
+int check_for_tea_too() {
   const int answer = 6 * 9;
 
   if (!tect_once(answer == 42)) // Triggers at most _once_ by hiding state.
@@ -127,24 +127,24 @@ Return assertion's integral value, and print when it is _first_ false.
 You should follow `tect_once` by calling `tect_report` as follows:
 
 ```c
-static int check_example() {
-    const int result = square(4);
+int check_example() {
+  const int result = square(4);
 
-    if (!tect_once(result == 16))
-      return tect_report("result == %d", result);
+  if (!tect_once(result == 16))
+    return tect_report("result == %d", result);
 
-    if (!tect_once(square(0) == 0))
-      return tect_report();
+  if (!tect_once(square(0) == 0))
+    return tect_report();
 
-    return 0;
+  return 0;
 }
 ```
 
 To fully run this test, use a loop such as:
 
 ```c
-    while(check_example())
-        ;
+ while (check_example())
+   ;
 ```
 
 We track the first activation in a mutating static variable.
