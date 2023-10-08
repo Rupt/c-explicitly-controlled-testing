@@ -4,7 +4,7 @@
 int check_some_code() {
   const char code[] = "--<-<<+[+[<+>--->->->-<<<]>]<<--.<++++++.<<-..<<.<+.";
 
-  if (!tect_once(sizeof(code) < 78)) // ✅
+  if (!tect_once(sizeof(code) < 78)) // ✔️
     return tect_report("sizeof(code) == %zu", sizeof(code));
 
   if (!tect_once(code[0] == '+')) // ❌
